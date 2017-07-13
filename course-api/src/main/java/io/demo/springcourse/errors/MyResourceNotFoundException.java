@@ -1,4 +1,4 @@
-package io.demo.springcourse.error;
+package io.demo.springcourse.errors;
 
 public final class MyResourceNotFoundException extends RuntimeException {
 

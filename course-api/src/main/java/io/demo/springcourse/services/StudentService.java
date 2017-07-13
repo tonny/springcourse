@@ -1,10 +1,12 @@
-package io.demo.springcourse.student;
+package io.demo.springcourse.services;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import io.demo.springcourse.models.domain.Student;
 
 @Service
 public class StudentService {
@@ -23,8 +25,8 @@ public class StudentService {
 		return students.stream().filter(s->s.getId().equals(id)).findFirst().get();
 	}
 
-	public void addStudent(Student student) {
-		students.add(student);
+	public boolean addStudent(Student student) {
+		return students.add(student);
 	}
 
 	public void updateStudent(Student student, String id) {

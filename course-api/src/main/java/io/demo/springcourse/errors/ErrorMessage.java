@@ -1,4 +1,4 @@
-package io.demo.springcourse.error;
+package io.demo.springcourse.errors;
 
 class ErrorMessage {
 	private String message;

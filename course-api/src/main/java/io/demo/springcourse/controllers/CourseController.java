@@ -1,4 +1,4 @@
-package io.demo.springcourse.course;
+package io.demo.springcourse.controllers;
 
 import java.util.List;
 
@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.demo.springcourse.student.Student;
+import io.demo.springcourse.models.domain.Course;
+import io.demo.springcourse.models.domain.Student;
+import io.demo.springcourse.services.CourseService;
 
 @RestController
 public class CourseController {
@@ -50,5 +52,10 @@ public class CourseController {
 	@RequestMapping("/courses/{code}/student")
 	public List<Student> addStudents(@PathVariable String code) {
 		return courseService.getStudents(code);
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE, value="/courses/{code}/student/{id}")
+	public boolean unregisterStudent(@PathVariable String code, @PathVariable String id) {
+		return courseService.unregisterStudent(code,id);
 	}
 }
