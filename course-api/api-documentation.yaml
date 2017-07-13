@@ -1,0 +1,226 @@
+swagger: '2.0'
+info:
+  title: PoC Spring Framewok API
+  description: API description in Markdown.
+  version: 1.0.0
+  contact:
+    email: antonio.mq@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: 'localhost:8080'
+basePath: /v1
+tags:
+  - name: students
+    description: Everything about your Students
+  - name: course
+    description: Everything about your Courses
+schemes:
+  - https
+paths:
+  /students:
+    get:
+      tags:
+        - students
+      summary: Returns a list of students.
+      description: no suport extra pameters
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Student'
+    post:
+      tags:
+        - students
+      summary: Add a new student to the students list
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Student object that needs to be added to the students list
+          required: true
+          schema:
+            $ref: '#/definitions/Student'
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+        - students
+      summary: Update an existing student
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Student object that needs to be added to the student list
+          required: true
+          schema:
+            $ref: '#/definitions/Student'
+      responses:
+        '200':
+          description: OK
+  '/students/{id}':
+    get:
+      tags:
+        - students
+      summary: Find student by ID
+      description: Returns a single student
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of student to return
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Student'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Student not found
+    delete:
+      tags:
+        - students
+      summary: Delete a student by ID
+      description: ''
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: Remove a user
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+  /courses:
+    get:
+      tags:
+        - course
+      summary: Returns a list of courses or classes.
+      description: no suport extra pameters
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Course'
+    post:
+      tags:
+        - course
+      summary: Add a new course to the courses list
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Course object that needs to be added to the course list
+          required: true
+          schema:
+            $ref: '#/definitions/Course'
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+        - course
+      summary: Update an existing course
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Course object that needs to be added to the course list
+          required: true
+          schema:
+            $ref: '#/definitions/Course'
+      responses:
+        '200':
+          description: OK
+  '/courses/{code}':
+    get:
+      tags:
+        - course
+      summary: Find course by ID
+      description: Returns a single course
+      produces:
+        - application/json
+      parameters:
+        - name: code
+          in: path
+          description: ID of course to return
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Course'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Course not found
+    delete:
+      tags:
+        - course
+      summary: Delete a course by ID
+      description: ''
+      produces:
+        - application/json
+      parameters:
+        - name: code
+          in: path
+          description: Remove a course
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+definitions:
+  Student:
+    type: object
+    properties:
+      id:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+  Course:
+    type: object
+    properties:
+      id:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      students:
+        type: array
+        $ref: '#/definitions/Student'
