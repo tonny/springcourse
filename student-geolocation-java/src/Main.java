@@ -1,6 +1,6 @@
 import earth.Earth;
 /**
- * Program to find if a group of students are inside a course in base his geolocation
+ * Program to find if a group of student are inside a course in base his geolocation.
  * @author Antonio Mamani
  * @version 11/07/2017
  */

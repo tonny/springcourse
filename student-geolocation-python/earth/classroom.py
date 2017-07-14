@@ -3,7 +3,7 @@ import math
 from geolocation import Geolocation
 
 class ClassRoom:
-    """Represent a classroom"""
+    """Represent a ClassRoom with name, latitude, and longitude as parameters"""
     def __init__(self, name, latitude, longitude):
         self.name = name
         self.geolocation = Geolocation(latitude,longitude)
@@ -25,10 +25,10 @@ class ClassRoom:
 
     def fillSquerePoints(self):
         '''
-        * Function to calculate the geolocation points (North-East, South-East, South-West,
-        * North-West) in base a geolocation point in the earth where is create a classroom 
-        * with dimension NxN. 
-        * Then the classroom know their points in the earth wich represent a square. 
+        Function to calculate the geolocation points (North-East, South-East, South-West,
+        North-West) in base a geolocation point in the earth where is create a classroom
+        with dimension NxN.
+        Then the classroom know their points in the earth wich represent a square.
         '''
         meters = self.dimention/2
 		# 1 degree in google map is equal to 111.32 Kilometer. 1Degree = 111.32KM. 
@@ -46,6 +46,17 @@ class ClassRoom:
         self.squarePoints.append(nw)
 
     def isStudentInClassRoom(self,geo):
+        """
+        Function to verify if a geolocation point is inside of any polygon,
+        This algorithm is bases point in polygon (PIP) used in computer graphics
+        @see https://en.wikipedia.org/wiki/Point_in_polygon
+        @see https://wrf.ecse.rpi.edu//Research/Short_Notes/pnpoly.html
+
+        @param geo: is a object that has a latitude and longitude
+        @type geo: Golocation
+        @rtype: boolean
+        @return: if the student is inside a course in base his geolocation
+        """
     	inside = False
         x = geo.latitude
         y = geo.longitude
