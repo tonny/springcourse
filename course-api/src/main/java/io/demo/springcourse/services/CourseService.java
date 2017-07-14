@@ -1,4 +1,4 @@
-package io.demo.springcourse.course;
+package io.demo.springcourse.services;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +6,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import io.demo.springcourse.student.Student;
+import io.demo.springcourse.models.domain.Course;
+import io.demo.springcourse.models.domain.Student;
 
 @Service
 public class CourseService {
@@ -22,7 +23,7 @@ public class CourseService {
 	}
 	
 	public Course getCourse(String code) {
-		return courses.stream().filter(s->s.getCode().equals(code)).findFirst().get();
+		return courses.stream().filter(course->course.getCode().equals(code)).findFirst().get();
 	}
 
 	public void addCourse(Course course) {
@@ -43,7 +44,7 @@ public class CourseService {
 	}
 
 	public void deleteCourse(String code) {
-		courses.removeIf(c-> c.getCode().equals(code));
+		courses.removeIf(course-> course.getCode().equals(code));
 	}
 	
 	public void addStudent(Student student, String courseCode) {
@@ -56,5 +57,13 @@ public class CourseService {
 	public List<Student> getStudents(String code) {
 		Course c = getCourse(code);
 		return c.getStudents();
+	}
+
+	public boolean unregisterStudent(String code, String id) {
+		boolean success = false;
+		Course c = getCourse(code);
+		if(c != null)
+			success = c.getStudents().removeIf(student -> student.getId().equals(id));
+		return success;
 	}
 }

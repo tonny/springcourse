@@ -1,4 +1,4 @@
-package io.demo.springcourse.student;
+package io.demo.springcourse.models.domain;
 
 public class Student {
 	

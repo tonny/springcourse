@@ -1,5 +1,5 @@
 class Geolocation:
-    """Represent a geolocation"""
+    """Represent a geolocation with latitude and longitude"""
     def __init__(self, latitude, longitude):
         self.latitude = latitude
         self.longitude = longitude

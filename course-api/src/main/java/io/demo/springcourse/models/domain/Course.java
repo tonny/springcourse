@@ -1,9 +1,7 @@
-package io.demo.springcourse.course;
+package io.demo.springcourse.models.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import io.demo.springcourse.student.Student;
 
 public class Course {
 	

@@ -1,4 +1,4 @@
-package io.demo.springcourse.student;
+package io.demo.springcourse.controllers;
 
 import java.util.List;
 
@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.demo.springcourse.models.domain.Student;
+import io.demo.springcourse.services.StudentService;
 
 @RestController
 public class StudentController {
