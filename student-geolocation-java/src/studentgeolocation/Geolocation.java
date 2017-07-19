@@ -1,4 +1,4 @@
-package io.demo.studentgeolocation.common;
+package studentgeolocation;
 
 public class Geolocation {
 

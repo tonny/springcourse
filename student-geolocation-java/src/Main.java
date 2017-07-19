@@ -1,6 +1,4 @@
-package io.demo.studentgeolocation.main;
-
-import io.demo.studentgeolocation.simulation.GeolocationSimulation;
+import studentgeolocation.GeolocationSimulation;
 
 /**
  * Program to find if a group of students are inside a course in base his

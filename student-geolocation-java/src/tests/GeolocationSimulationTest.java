@@ -1,4 +1,4 @@
-package io.demo.studentgeolocation.tests;
+package tests;
 
 import static org.junit.Assert.*;
 
@@ -7,9 +7,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import io.demo.studentgeolocation.classroom.ClassRoom;
-import io.demo.studentgeolocation.simulation.GeolocationSimulation;
-import io.demo.studentgeolocation.student.Student;
+import studentgeolocation.ClassRoom;
+import studentgeolocation.GeolocationSimulation;
+import studentgeolocation.Student;
 
 public class GeolocationSimulationTest {
 
