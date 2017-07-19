@@ -13,10 +13,9 @@ class Geolocation:
         return self.longitude
 
     @latitude.setter
-    def latitude(self,latitude):
+    def latitude(self, latitude):
         self.longitude = latitude
 
     @longitude.setter
-    def longitude(self,longitude):
+    def longitude(self, longitude):
         self.longitude = longitude
-
