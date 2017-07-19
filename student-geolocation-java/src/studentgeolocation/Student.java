@@ -1,6 +1,4 @@
-package io.demo.studentgeolocation.student;
-
-import io.demo.studentgeolocation.common.Geolocation;
+package studentgeolocation;
 
 public class Student {
 

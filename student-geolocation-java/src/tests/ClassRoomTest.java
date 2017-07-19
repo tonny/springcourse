@@ -1,11 +1,11 @@
-package io.demo.studentgeolocation.tests;
+package tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import io.demo.studentgeolocation.classroom.ClassRoom;
-import io.demo.studentgeolocation.student.Student;
+import studentgeolocation.ClassRoom;
+import studentgeolocation.Student;
 
 public class ClassRoomTest {
 
