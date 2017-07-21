@@ -15,7 +15,7 @@ public class ClassRoom {
 		this.name = name;
 		dimension = 20;
 		geolocation = new Geolocation(latitude, longitude);
-		squarePoints = new ArrayList<Geolocation>();
+		squarePoints = new ArrayList<>();
 		squareUtil = new GeolocationUtil();
 		fillSquarePoints();
 	}

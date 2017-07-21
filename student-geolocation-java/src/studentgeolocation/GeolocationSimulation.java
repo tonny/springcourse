@@ -21,7 +21,7 @@ public class GeolocationSimulation {
 	 * 					 inside a course.
 	 */
 	public List<Student> studentsInClasses(List<Student> students, List<ClassRoom> classRooms) {
-		List<Student> studentsFound = new ArrayList<Student>();
+		List<Student> studentsFound = new ArrayList<>();
 		for (ClassRoom classRoom : classRooms) {
 			for (Student student : students) {
 				if (classRoom.isStudentInClassRoom(student.getPosition())) {
@@ -40,12 +40,12 @@ public class GeolocationSimulation {
 	}
 
 	public void exampleSimulationOne() {
-		List<Student> students = new ArrayList<Student>(Arrays.asList(
+		List<Student> students = new ArrayList<>(Arrays.asList(
 				new Student("John Wilson", 34.069149, -118.442639), 
 				new Student("Jane Graham", 34.069601, -118.441862),
 				new Student("Pam Bam", 34.071513, -118.441181)));
 
-		List<ClassRoom> classRooms = new ArrayList<ClassRoom>(Arrays.asList(
+		List<ClassRoom> classRooms = new ArrayList<>(Arrays.asList(
 				new ClassRoom("Principles of computational", 34.069140, -118.442689),
 				new ClassRoom("Sedimentary Petrology", 34.069585, -118.441878),
 				new ClassRoom("Introductory Psychobiology", 34.069742, 118.441312),
@@ -56,12 +56,12 @@ public class GeolocationSimulation {
 	}
 
 	public void exampleSimulationTwo() {
-		List<Student> students = new ArrayList<Student>(Arrays.asList(
+		List<Student> students = new ArrayList<>(Arrays.asList(
 				new Student("John Wilson", 34.069849, -118.443539),
 				new Student("Jane Graham", 34.069901, -118.441562),
 				new Student("Pam Bam", 34.071523, -118.441171)));
 		
-		List<ClassRoom> classRooms = new ArrayList<ClassRoom>(Arrays.asList(
+		List<ClassRoom> classRooms = new ArrayList<>(Arrays.asList(
 				new ClassRoom("Principles of computational", 34.069140, -118.442689),
 				new ClassRoom("Sedimentary Petrology", 34.069585, -118.441878),
 				new ClassRoom("Introductory Psychobiology", 34.069742, -118.441312),
