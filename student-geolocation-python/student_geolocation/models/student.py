@@ -1,4 +1,4 @@
-from ..common.geolocation import Geolocation
+from geolocation import Geolocation
 
 
 class Student:

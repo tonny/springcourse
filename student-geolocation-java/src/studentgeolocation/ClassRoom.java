@@ -7,15 +7,17 @@ public class ClassRoom {
 
 	private String name;
 	private Geolocation geolocation;
-	private final int dimention = 20;
+	private int dimension;
 	private List<Geolocation> squarePoints;
-	private SquareUtil squareUtil = new SquareUtil();
+	private GeolocationUtil squareUtil;
 
 	public ClassRoom(String name, double latitude, double longitude) {
 		this.name = name;
+		dimension = 20;
 		geolocation = new Geolocation(latitude, longitude);
 		squarePoints = new ArrayList<Geolocation>();
-		fillSquerePoints();
+		squareUtil = new GeolocationUtil();
+		fillSquarePoints();
 	}
 
 	/**
@@ -27,20 +29,20 @@ public class ClassRoom {
 	 * 1 Degree = 111.32KM. 1KM in Degree = 1 / 111.32 = 0.008983. 
 	 * 1M in Degree = 0.000008983. 0.0000089 ~= coefficient of variation
 	 */
-	private void fillSquerePoints() {
-		double meters = dimention / 2;
+	private void fillSquarePoints() {
+		double halfSideFromSquareInMeters = dimension / 2;
 		double coefficientVariation = 0.0000089;
-		double coef = meters * coefficientVariation;
-		double divLat = Math.cos(Math.toRadians(geolocation.getLatitude()));
+		double meters = halfSideFromSquareInMeters * coefficientVariation;
+		double cosLatitude = Math.cos(Math.toRadians(geolocation.getLatitude()));
 
-		Geolocation northEast = new Geolocation(geolocation.getLatitude() + coef,
-				geolocation.getLongitude() + coef / divLat);
-		Geolocation southEast = new Geolocation(geolocation.getLatitude() - coef,
-				geolocation.getLongitude() + coef / divLat);
-		Geolocation southWest = new Geolocation(geolocation.getLatitude() - coef,
-				geolocation.getLongitude() - coef / divLat);
-		Geolocation northWest = new Geolocation(geolocation.getLatitude() + coef,
-				geolocation.getLongitude() - coef / divLat);
+		Geolocation northEast = new Geolocation(geolocation.getLatitude() + meters,
+				geolocation.getLongitude() + meters / cosLatitude);
+		Geolocation southEast = new Geolocation(geolocation.getLatitude() - meters,
+				geolocation.getLongitude() + meters / cosLatitude);
+		Geolocation southWest = new Geolocation(geolocation.getLatitude() - meters,
+				geolocation.getLongitude() - meters / cosLatitude);
+		Geolocation northWest = new Geolocation(geolocation.getLatitude() + meters,
+				geolocation.getLongitude() - meters / cosLatitude);
 
 		squarePoints.add(northEast);
 		squarePoints.add(southEast);
@@ -50,14 +52,6 @@ public class ClassRoom {
 
 	public String getName() {
 		return name;
-	}
-
-	public Geolocation getGeolocation() {
-		return geolocation;
-	}
-
-	public void setGeolocation(Geolocation geolocation) {
-		this.geolocation = geolocation;
 	}
 
 	/**
@@ -91,10 +85,14 @@ public class ClassRoom {
 	}
 
 	public void printSquarePoints() {
-		squareUtil.printSquarePoints(squarePoints);
+		for (Geolocation g : squarePoints) {
+			System.out.println(g.getLatitude() + "," + g.getLongitude());
+		}
 	}
 
 	public void printDistances() {
-		squareUtil.printDistances(squarePoints, geolocation);
+		for (Geolocation g : squarePoints) {
+			System.out.println(squareUtil.distanceBetweenTwoGeolocationPosition(geolocation, g));
+		}
 	}
 }
