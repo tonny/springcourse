@@ -1,6 +1,6 @@
 import math
 
-from ..common.geolocation import Geolocation
+from geolocation import Geolocation
 
 
 class ClassRoom:

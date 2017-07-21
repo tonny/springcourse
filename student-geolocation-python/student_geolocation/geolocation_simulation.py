@@ -1,5 +1,5 @@
-from class_room.classroom import ClassRoom
-from student.student import Student
+from models.classroom import ClassRoom
+from models.student import Student
 
 
 class GeolocationSimulation:
@@ -52,8 +52,7 @@ class GeolocationSimulation:
 
     def print_clouster_students(self, class_rooms):
         for class_room in class_rooms:
-            print "classroom: " + class_room.name
-            + " has the following students"
+            print class_room.name + " has the following students:"
             for student in class_room.students:
                 print student.name
 
