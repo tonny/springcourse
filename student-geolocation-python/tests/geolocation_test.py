@@ -3,6 +3,7 @@ from student_geolocation.geolocation_simulation import GeolocationSimulation
 from student_geolocation.models.student import Student
 from student_geolocation.models.classroom import ClassRoom
 
+
 def test_a_classroom_with_two_students():
 
     geolocation_simulation = GeolocationSimulation()
@@ -27,6 +28,7 @@ def test_a_classroom_with_two_students():
 
     assert_equals(len(rooms), 1)
 
+
 def test_there_aren_not_two_students_in_classroom():
 
     geolocation_simulation = GeolocationSimulation()
@@ -49,12 +51,14 @@ def test_there_aren_not_two_students_in_classroom():
                                                                class_rooms)
     assert_equals(len(rooms), 0)
 
+
 def test_student_is_not_inside_of_classroom():
 
     class_room = ClassRoom("Art Hitory", 34.071528, -118.441211)
     student = Student("Jane Graham", 34.069601, -118.441862)
 
     assert_false(class_room.is_student_in_class_room(student.position))
+
 
 def test_student_is_inside_of_classroom():
 

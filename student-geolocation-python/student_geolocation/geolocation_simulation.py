@@ -57,31 +57,20 @@ class GeolocationSimulation:
                 print student.name
 
     def example_simulation_one(self):
-        engineering_classroom = ClassRoom("Principles", 34.069140, -118.442689)
-        geology_classroom = ClassRoom("Sedimentary Petrology",
-                                      34.069585, -118.441878)
-        psychology_classroom = ClassRoom("Introductory Psychobiology",
-                                         34.069742, 118.441312)
-        music_classroom = ClassRoom("Art of Listening", 34.070223, -118.440193)
-        humanities_classroom = ClassRoom("Art Hitory", 34.071528, -118.441211)
+        class_rooms = [
+            ClassRoom("Principles", 34.069140, -118.442689),
+            ClassRoom("Sedimentary Petrology", 34.069585, -118.441878),
+            ClassRoom("Introductory Psychobiology", 34.069742, 118.441312),
+            ClassRoom("Art of Listening", 34.070223, -118.440193),
+            ClassRoom("Art Hitory", 34.071528, -118.441211)
+        ]
 
-        class_rooms = []
-        class_rooms.append(humanities_classroom)
-        class_rooms.append(geology_classroom)
-        class_rooms.append(engineering_classroom)
-        class_rooms.append(music_classroom)
-        class_rooms.append(psychology_classroom)
-
-        john_student = Student("John Wilson", 34.069149, -118.442639)
-        jane_student = Student("Jane Graham", 34.069601, -118.441862)
-        pam_student = Student("Pame Bam", 34.071513, -118.441181)
-        pom_student = Student("Bam Bam", 34.071501, -118.441170)
-
-        students = []
-        students.append(john_student)
-        students.append(jane_student)
-        students.append(pam_student)
-        students.append(pom_student)
+        students = [
+            Student("John Wilson", 34.069149, -118.442639),
+            Student("Jane Graham", 34.069601, -118.441862),
+            Student("Pame Bam", 34.071513, -118.441181),
+            Student("Bam Bam", 34.071501, -118.441170)
+        ]
 
         self.print_clouster_students(
             self.student_clusters_in_classes(students, class_rooms))
